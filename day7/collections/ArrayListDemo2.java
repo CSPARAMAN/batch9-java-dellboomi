@@ -11,13 +11,12 @@ public class ArrayListDemo2 {
 		courses.add("java");
 		courses.add("sql");
 		courses.add("c++");
-		courses.add("spring");
+		courses.add("spring");	
+		courses.add(new Integer(10));
+		courses.add(new B());	
 		
-		//System.out.println(courses);
+		System.out.println(courses);
 		
-		//using enhanced for loop
-		
-		// using Iterator
 		
 		Iterator i = courses.iterator();
 		
