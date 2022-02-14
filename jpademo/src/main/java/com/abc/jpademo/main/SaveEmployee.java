@@ -12,10 +12,10 @@ public class SaveEmployee {
 	public static void main(String[] args) {
 		
 		Employee emp = new Employee();
-		emp.setEmpno(2001);
-		emp.setName("nemp-1");
+		emp.setEmpno(2002);
+		emp.setName("nemp-2");
 		emp.setSalary(66000);
-		emp.setDeptno(20);
+		emp.setEmail("nemp-1@tmail.com");
 			
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPA-PU");
 		EntityManager em = emf.createEntityManager();

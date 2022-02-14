@@ -2,8 +2,11 @@ package com.abc.jpademo.entity;
 
 import java.time.LocalDate;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,9 +16,10 @@ public class Product {
 
 	@Id
 	@Column(name="product_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int productId;
 	
-	@Column(name="product_name")
+	@Column(name="product_name", length = 30)
 	private String productName;
 	
 	private double price;
