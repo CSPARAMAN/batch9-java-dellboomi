@@ -15,9 +15,10 @@ public class SaveProductMain {
 		
 		Product product = new Product();
 		//product.setProductId(20);
-		product.setProductName("IPhone");
-		product.setPrice(86000);
+		product.setProductName("SonyX");
+		product.setPrice(26000);
 		product.setCreatedAt(LocalDate.of(2020, 01,10));
+		product.setCategory("headphone");
 		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPA-PU");
 		EntityManager em = emf.createEntityManager();
