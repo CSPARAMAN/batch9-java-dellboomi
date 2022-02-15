@@ -8,9 +8,18 @@ public class StudentMain {
 		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		
-		Student student = (Student) context.getBean("stu1");
+		Student student1 = (Student) context.getBean("stu1");	
 		
-		student.displayStudent();
+		//student1.displayStudent();
+		
+		Student student2 = (Student) context.getBean("stu1");
+		
+		if(student1 == student2) {
+			System.out.println("Both refer to same object");
+		}
+		else {
+			System.out.println("Both refer to different object");
+		}
 		
 		context.close();
 

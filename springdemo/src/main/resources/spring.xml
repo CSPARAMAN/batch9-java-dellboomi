@@ -10,7 +10,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<constructor-arg name="msg" value="Hello spring" />
 	</bean>
 
-	<bean id="stu1" class="com.abc.springdemo.Student">
+	<bean id="stu1" class="com.abc.springdemo.Student" scope="prototype">
 		<property name="studentId" value="1001"></property>
 		<property name="studentName" value="Sameer"></property>
 		<property name="skills">

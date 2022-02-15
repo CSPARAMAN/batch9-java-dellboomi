@@ -8,18 +8,17 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="welcome" class="com.abc.springdemo.Welcome">
 		<property name="message" value="Hi spring" />
 	</bean>
-
-	<bean id="rect" class="com.abc.springdemo.bean.Rectangle">
-
+	
+	<bean id="shapeObj" class="com.abc.springdemo.bean.Square">   
+		<property name="side" value="4"></property>        
 	</bean>
-
-	<bean id="cir" class="com.abc.springdemo.bean.Circle">   
-		<property name="radius" value="5"></property>        
+	<!-- 
+	<bean id="shapeObj2" class="com.abc.springdemo.bean.Circle">   
+		<property name="radius" value="6"></property>        
 	</bean>
-
-	<bean id="shapeService"
-		class="com.abc.springdemo.service.ShapeService">  
-		<property name="shape" ref="cir"></property>     
+ -->
+	<bean id="shapeService"	class="com.abc.springdemo.service.ShapeService" autowire="byType">  
+		<!--  <property name="shape" ref="cir"></property>    -->  
 	</bean>
 
 
