@@ -23,6 +23,7 @@ public class ShapeServiceMain {
 		ShapeService service = (ShapeService) context.getBean("shapeService");
 		
 		double area = service.calculateArea();
+		
 		System.out.println("Area: "+area);
 		
 		
