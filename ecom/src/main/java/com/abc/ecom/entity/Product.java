@@ -7,34 +7,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "product_tbl")
-@NamedQueries({ 
-	@NamedQuery(name = "fetchAllProducts", query = "select p from Product p"),		
-	@NamedQuery(name = "fetchProductsByType", query = "select p from Product p where category = :ptype") 
-	
-})
-
+@Table(name="product_tbl")
 public class Product {
 
 	@Id
-	@Column(name = "product_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="product_id")
 	private int productId;
-
-	@Column(name = "product_name", length = 30)
+	
+	@Column(name="product_name")
 	private String productName;
-
-	private double price;
-
-	@Column(name = "created_at")
-	private LocalDate createdAt;
-
-	private String category;
+	
+	@Column(name="price")
+	private double productPrice;
+	
+	@Column(name="category")
+	private String productCategory;
+	
+	@Column(name="created_at")
+	private LocalDate createOn;
 
 	public int getProductId() {
 		return productId;
@@ -52,28 +46,28 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public double getPrice() {
-		return price;
+	public double getProductPrice() {
+		return productPrice;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
 	}
 
-	public LocalDate getCreatedAt() {
-		return createdAt;
+	public String getProductCategory() {
+		return productCategory;
 	}
 
-	public void setCreatedAt(LocalDate createdAt) {
-		this.createdAt = createdAt;
+	public void setProductCategory(String productCategory) {
+		this.productCategory = productCategory;
 	}
 
-	public String getCategory() {
-		return category;
+	public LocalDate getCreateOn() {
+		return createOn;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCreateOn(LocalDate createOn) {
+		this.createOn = createOn;
 	}
-
+	
 }
