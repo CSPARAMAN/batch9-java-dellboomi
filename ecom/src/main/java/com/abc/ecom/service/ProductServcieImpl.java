@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.abc.ecom.entity.Product;
+import com.abc.ecom.exception.ProductNotFoundException;
 import com.abc.ecom.repository.ProductRepository;
 
 @Service
@@ -30,17 +31,41 @@ public class ProductServcieImpl implements ProductService {
 	}
 
 	@Override
-	public Product getProductById(int productId) {
-		Product product = null;
+	public Product getProductById(int productId) throws ProductNotFoundException {
+		
 		Optional<Product> optionalProduct = productRepository.findById(productId);
 		
-		if(optionalProduct.isPresent()) {
-			return optionalProduct.get();
+		if(optionalProduct.isEmpty()) {
+			throw new ProductNotFoundException("Sorry! Product is not existing with id: "+productId);
 		}
-		else {
-			return product;
+		return optionalProduct.get();		
+	}
+
+	@Override
+	public Product updateProduct(Product product) {
+		
+		Optional<Product> optionalProduct = productRepository.findById(product.getProductId());
+		
+		if(optionalProduct.isEmpty()) {
+			throw new ProductNotFoundException("Sorry! Product is not existing with id: "+product.getProductId());
 		}
 		
+		Product updatedProduct = productRepository.save(product);
+		
+		return updatedProduct;
+	}
+
+	@Override
+	public void deleteProduct(int productId) {
+	
+		Optional<Product> optionalProduct = productRepository.findById(productId);
+		
+		if(optionalProduct.isPresent()) {			
+			productRepository.deleteById(productId);			
+		}
+		else {
+			throw new ProductNotFoundException("Sorry! Product is not existing with id: "+productId);
+		}			
 	}
 
 }
