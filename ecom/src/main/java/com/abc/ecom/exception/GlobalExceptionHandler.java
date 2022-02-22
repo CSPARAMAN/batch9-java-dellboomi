@@ -13,6 +13,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<String> handleProductNotExistingException(Exception e) {		
 		ResponseEntity<String> responseEntity= new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
 		return responseEntity;
-	}		
+	}	
+	
+	@ExceptionHandler(CustomerNotFoundException.class)
+	public ResponseEntity<String> handleCustomerNotExistingException(Exception e) {		
+		ResponseEntity<String> responseEntity= new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
+		return responseEntity;
+	}	
 	
 }
